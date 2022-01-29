@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Rules\Uppercase;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ArticleController extends Controller
 {
@@ -15,6 +16,8 @@ class ArticleController extends Controller
             // It should check whether title's first letter is uppercase
             'title' => ['required', new Uppercase()]
         ]);
+
+
 
         Article::create(['title' => $request->title]);
     }
